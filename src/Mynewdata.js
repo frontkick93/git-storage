@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react';
-//import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import React from "react";
-
 import Button from '@mui/material/Button'
+//import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 
 const Mynewdata = () => {
@@ -16,12 +15,14 @@ const Mynewdata = () => {
             const response = await fetch('http://localhost:3002/Mynewdata')
             const data = await response.json();
             setData(data.query1);
+            setData(data.query2);
             
         }; 
         fetchList();
 
 },[]);
-useEffect(() => {
+// user when different endpoint
+/*useEffect(() => {
 
     //Make an HTTP request to fetch data
     const fetchList2 = async () => {
@@ -34,6 +35,7 @@ useEffect(() => {
 
 },[]);
 
+*/
 
 
 
@@ -44,7 +46,7 @@ return (
     List of item2: 
     <ul>
         {data2.map(item2 => (
-            data2.length//<li key={item2.vid}>{item2.vid},{item2.vts}</li>
+            <li key={item2.vid}>{item2.vid},{item2.vts}</li>
         ))}
     </ul>
     <h3>Number of rows: {data2.length}</h3>
